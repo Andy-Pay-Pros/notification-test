@@ -7,6 +7,7 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post('/notifications', (req, res) => {
+    console.log(req.headers)
     console.log(req.body)
     res.status(200).json({ success: true, message: 'Notification received successfully' });
 });

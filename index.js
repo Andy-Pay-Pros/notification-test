@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 app.post('/notifications', (req, res) => {
     try {
         console.log(req.headers)

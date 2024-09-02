@@ -5,10 +5,14 @@ const app = express();
 const port = 3000;
 
 app.post('/notifications', (req, res) => {
-    console.log(req)
-    // console.log(req.headers)
-    // console.log(req.body)
-    res.status(200).json({ success: true, message: 'Notification received successfully' });
+    try {
+        console.log(req.headers)
+        console.log(req.body)
+        return res.status(200).json({ success: true, message: 'Notification received successfully' });
+    } catch (error) {
+        console.log(error)
+        return res.status(200).json({ success: false, message: 'Notification received error' });
+    }
 });
 
 // Iniciar el servidor

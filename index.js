@@ -19,7 +19,7 @@ const decryptTripleDES = function (message, key) {
   return payload.toString(cryptojs.enc.Utf8);
 };
 
-app.use(express.json());
+app.use(express.test());
 app.post("/notifications", (req, res) => {
   console.log(req);
   return res.sendStatus(400);

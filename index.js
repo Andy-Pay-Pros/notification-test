@@ -8,7 +8,7 @@ const uri =
 
 const app = express();
 app.use(express.json());
-const port = 3000;
+const port = 6000;
 
 const getKeyTripleDES = function (key) {
   let securityKeyArray = cryptojs.MD5(key).toString();

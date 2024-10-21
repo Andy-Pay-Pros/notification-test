@@ -21,20 +21,22 @@ const decryptTripleDES = function (message, key) {
 
 app.use(express.json());
 app.post("/notifications", (req, res) => {
-  try {
-    // console.log(req.headers)
-    console.log(req.body);
+  console.log(req);
+  return res.sendStatus(400);
+  //   try {
+  //     // console.log(req.headers)
+  //     console.log(req.body);
 
-    const secret =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJBcGlLZXkiOiI3NzA3NTciLCJWZXJzaW9uIjoiMS4wIn0.X_ubupT4w9HMpQmm55IMtGHlrsTbdALXXsv6O9fkC60";
-    const { payload } = req.body;
-    const dto = JSON.parse(decryptTripleDES(payload, secret));
-    console.log(dto);
-    return res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    return res.sendStatus(400);
-  }
+  //     const secret =
+  //       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJBcGlLZXkiOiI3NzA3NTciLCJWZXJzaW9uIjoiMS4wIn0.X_ubupT4w9HMpQmm55IMtGHlrsTbdALXXsv6O9fkC60";
+  //     const { payload } = req.body;
+  //     const dto = JSON.parse(decryptTripleDES(payload, secret));
+  //     console.log(dto);
+  //     return res.sendStatus(200);
+  //   } catch (error) {
+  //     console.log(error);
+  //     return res.sendStatus(400);
+  //   }
 });
 
 // Iniciar el servidor

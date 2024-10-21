@@ -2,9 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cryptojs = require("crypto-js");
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-  "mongodb+srv://sancheztest97:1KbDa5m5lUAXFOmc@notification.qjury.mongodb.net/?retryWrites=true&w=majority&appName=notification";
+// const { MongoClient, ServerApiVersion } = require("mongodb");
+// const uri =
+//   "mongodb+srv://sancheztest97:1KbDa5m5lUAXFOmc@notification.qjury.mongodb.net/?retryWrites=true&w=majority&appName=notification";
 
 const app = express();
 app.use(express.json());
@@ -24,17 +24,16 @@ const decryptTripleDES = function (message, key) {
   return payload.toString(cryptojs.enc.Utf8);
 };
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   },
+// });
 
-let collection;
+// let collection;
 
-app
 app.post("/notifications", async (req, res) => {
   const notificationData = req.body;
 
@@ -42,13 +41,13 @@ app.post("/notifications", async (req, res) => {
     return res.sendStatus(400);
   }
 
-  try {
-    const resultado = await collection.insertOne(notificationData);
-    return res.sendStatus(200);
-  } catch (err) {
-    console.error(err);
-    return res.sendStatus(400);
-  }
+//   try {
+//     const resultado = await collection.insertOne(notificationData);
+//     return res.sendStatus(200);
+//   } catch (err) {
+//     console.error(err);
+//     return res.sendStatus(400);
+//   }
   //   try {
   //     // console.log(req.headers)
   //     console.log(req.body);
@@ -68,16 +67,16 @@ app.post("/notifications", async (req, res) => {
 // Iniciar el servidor
 app.listen(port, async () => {
   console.log(`Server on port: ${port}`);
-  await connectToDB();
+//   await connectToDB();
 });
 
-async function connectToDB() {
-  try {
-    await client.connect();
-    console.log("Conectado a MongoDB");
-    const database = client.db("notification");
-    collection = database.collection("notification");
-  } catch (err) {
-    console.error("Error conectando a la base de datos:", err);
-  }
-}
+// async function connectToDB() {
+//   try {
+//     await client.connect();
+//     console.log("Conectado a MongoDB");
+//     const database = client.db("notification");
+//     collection = database.collection("notification");
+//   } catch (err) {
+//     console.error("Error conectando a la base de datos:", err);
+//   }
+// }

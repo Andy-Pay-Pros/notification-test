@@ -7,7 +7,7 @@ const port = 3000;
 app.use(express.json());
 app.post('/notifications', (req, res) => {
     try {
-        console.log(req.headers)
+        // console.log(req.headers)
         console.log(req.body)
         return res.status(200).json({ success: true, message: 'Notification received successfully' });
     } catch (error) {

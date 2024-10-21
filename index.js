@@ -9,10 +9,10 @@ app.post('/notifications', (req, res) => {
     try {
         // console.log(req.headers)
         console.log(req.body)
-        return res.status(200).json({ success: true, message: 'Notification received successfully' });
+        return res.sendStatus(200);
     } catch (error) {
         console.log(error)
-        return res.status(200).json({ success: false, message: 'Notification received error' });
+        return res.status(400);
     }
 });
 

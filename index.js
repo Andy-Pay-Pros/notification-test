@@ -33,7 +33,7 @@ app.post("/notifications", (req, res) => {
     return res.sendStatus(200);
   } catch (error) {
     console.log(error);
-    return res.status(400);
+    return res.sendStatus(400);
   }
 });
 

@@ -38,18 +38,19 @@ app.post("/notifications", async (req, res) => {
   const notificationData = req.body;
 
   console.log(notificationData);
+  return res.sendStatus(200);
 
-  if (!notificationData) {
-    return res.sendStatus(400);
-  }
+  // if (!notificationData) {
+  //   return res.sendStatus(400);
+  // }
 
-  try {
-    const resultado = await collection.insertOne(notificationData);
-    return res.sendStatus(200);
-  } catch (err) {
-    console.error(err);
-    return res.sendStatus(400);
-  }
+  // try {
+  //   const resultado = await collection.insertOne(notificationData);
+  //   return res.sendStatus(200);
+  // } catch (err) {
+  //   console.error(err);
+  //   return res.sendStatus(400);
+  // }
   //   try {
   //     // console.log(req.headers)
   //     console.log(req.body);

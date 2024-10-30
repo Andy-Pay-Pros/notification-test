@@ -37,17 +37,19 @@ let collection;
 app.post("/notifications", async (req, res) => {
   const notificationData = req.body;
 
+  console.log(notificationData);
+
   if (!notificationData) {
     return res.sendStatus(400);
   }
 
-    try {
-      const resultado = await collection.insertOne(notificationData);
-      return res.sendStatus(200);
-    } catch (err) {
-      console.error(err);
-      return res.sendStatus(400);
-    }
+  try {
+    const resultado = await collection.insertOne(notificationData);
+    return res.sendStatus(200);
+  } catch (err) {
+    console.error(err);
+    return res.sendStatus(400);
+  }
   //   try {
   //     // console.log(req.headers)
   //     console.log(req.body);
@@ -67,7 +69,7 @@ app.post("/notifications", async (req, res) => {
 // Iniciar el servidor
 app.listen(port, async () => {
   console.log(`Server on port: ${port}`);
-    await connectToDB();
+  await connectToDB();
 });
 
 async function connectToDB() {

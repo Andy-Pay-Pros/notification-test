@@ -1,3 +1,5 @@
+// import express from 'express';
+// import express from 'crypto-js';
 const express = require("express");
 const cryptojs = require("crypto-js");
 
@@ -9,7 +11,7 @@ const getKeyAES = function (key) {
   return cryptojs.enc.Hex.parse(cryptojs.SHA256(key).toString());
 }
 
-export const decryptAES = function (message, key) {
+const decryptAES = function (message, key) {
   const messageBytes = cryptojs.enc.Base64.parse(message);
   const iv = cryptojs.lib.WordArray.create(messageBytes.words.slice(0, 4));
   const ciphertext = cryptojs.lib.WordArray.create(messageBytes.words.slice(4));
